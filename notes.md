@@ -52,7 +52,7 @@ Laravel uses MVC pattern
 
 - **test/**
   
-  - containes our test
+  - contains our test
 
 - **.env**
   
@@ -76,4 +76,38 @@ Laravel uses MVC pattern
     in your view file use {{ $name }}
 
 ##### Redirect
+
     route::redirect('/', '/home'); // redirect welcome page to home page route
+
+### Controller
+
+- The controller comes under MVC architecture
+- It is responsible for handling user input and updating the model and view accordingly.
+- It acts as an interface between Model and View
+- There are 2 ways to make a controller
+  - **Manual**
+  - **Using Console**
+    - php artisan make:controller ControllerName
+    - Example:-
+      - php artisan make:controller UserController
+        **UserController.php**
+            <?php
+
+                namespace App\Http\Controllers;
+
+                use Illuminate\Http\Request;
+
+                class UserController extends Controller
+                {
+                //
+                function getUser() {
+                return "Ritesh Singh";
+            }
+        }
+
+        **web.php**
+            use App\Http\Controllers\UserController;
+            Route::get('user', [UserController::class, 'getUser']);
+
+### Views
+Contains ***UI*** part.
