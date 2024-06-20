@@ -82,32 +82,63 @@ Laravel uses MVC pattern
 ### Controller
 
 - The controller comes under MVC architecture
+
 - It is responsible for handling user input and updating the model and view accordingly.
+
 - It acts as an interface between Model and View
+
 - There are 2 ways to make a controller
+  
   - **Manual**
+  
   - **Using Console**
+    
     - php artisan make:controller ControllerName
+    
     - Example:-
+      
       - php artisan make:controller UserController
         **UserController.php**
+        
             <?php
-
+            
                 namespace App\Http\Controllers;
-
+            
                 use Illuminate\Http\Request;
-
+            
                 class UserController extends Controller
                 {
                 //
                 function getUser() {
                 return "Ritesh Singh";
             }
+        
         }
-
+        
         **web.php**
+        
             use App\Http\Controllers\UserController;
             Route::get('user', [UserController::class, 'getUser']);
 
 ### Views
+
 Contains ***UI*** part.
+**How to Create View**
+
+- ***Manual***
+
+- ***Command line***
+  
+        php artisan make:view view_name
+
+- ***Nested View***
+  Lets suppose you have a view in **/views/admin/login** and you want to call this view then you have to use ***admin.login***
+- **Check if view exists or not**
+  -
+  - **Step 1** -> import **use Illuminate\Support\Facades\View;** in file where you want to check for the view
+  - **Step 2** -> 
+        if(View::exists('view_name')) {
+            return view('view_name');
+        } else {
+            return "No View Found";
+        }

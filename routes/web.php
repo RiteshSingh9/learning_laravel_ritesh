@@ -25,3 +25,4 @@ Route::get('about', [UserController::class, 'aboutUser']);
 Route::get('user/{name}', [UserController::class, 'getUserName']);
 
 Route::get('admin', [UserController::class, 'adminLogin']);
+Route::get('/test', [UserController::class, 'testView']);
