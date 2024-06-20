@@ -133,12 +133,53 @@ Contains ***UI*** part.
 
 - ***Nested View***
   Lets suppose you have a view in **/views/admin/login** and you want to call this view then you have to use ***admin.login***
+  In Laravel, nested views refer to a technique for structuring your Blade templates to create reusable components and improve code organization.
+
 - **Check if view exists or not**
-  -
+  
   - **Step 1** -> import **use Illuminate\Support\Facades\View;** in file where you want to check for the view
+  
   - **Step 2** -> 
+    
         if(View::exists('view_name')) {
             return view('view_name');
         } else {
             return "No View Found";
         }
+
+### Blade Template
+
+- Blade is a simpple, yet powerful templating engine for executing for executing PHP code
+
+- This is included in the Laravel framework.
+
+- **The template engine is a module or tool for executing code**
+
+- It's faster the normal PHP execution
+  
+  - becaause it maintains the view in **cache**
+  
+  - when we change code in view it updates the **cache**
+
+- To use blade template view should end with **.blade.php**
+
+- See home.blade.php for tags
+- **@extends** -> extends the layout
+- **@section** -> defines a section of content
+- **@yield** -> displays the content of a section
+- **@include** -> includes a view
+- **@each** -> loops through an array and includes a view for each item
+- **@foreach** -> loops through an array
+- **@if** -> conditional statement
+- **@unless** -> conditional statement
+- **@for** -> loops through an array
+- **@while** -> loops through an array
+- **@php** -> executes raw PHP code
+- **{{ }}** -> displays the value of a variable
+- **{!! !!}** -> displays the value of a variable without escaping
+- **@csrf** -> generates a CSRF token field
+- **@method** -> generates a form method spoofing field
+- **@push** -> pushes a value onto a stack
+- **@stack** -> displays the contents of a stack
+- **@verbatim** -> prevents Blade from compiling the contents of the block
+See laravel docs for other tags

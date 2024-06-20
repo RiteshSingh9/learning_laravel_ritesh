@@ -20,9 +20,11 @@ Route::get('/', function () {
 //     return view('about', ["name"=> $name]);
 // });
 
-Route::get('user', [UserController::class, 'getUser']);
-Route::get('about', [UserController::class, 'aboutUser']);
-Route::get('user/{name}', [UserController::class, 'getUserName']);
+// Route::get('user', [UserController::class, 'getUser']);
+// Route::get('about', [UserController::class, 'aboutUser']);
+// Route::get('user/{name}', [UserController::class, 'getUserName']);
 
-Route::get('admin', [UserController::class, 'adminLogin']);
-Route::get('/test', [UserController::class, 'testView']);
+// Route::get('admin', [UserController::class, 'adminLogin']);
+// Route::get('/test', [UserController::class, 'testView']);
+
+Route::get('/home', [UserController::class, 'userHome']);

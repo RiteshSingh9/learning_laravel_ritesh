@@ -48,3 +48,9 @@
             } else {
                 return "No View Found";
             }
+
+### Blade related question
+
+- **What is blade ?**
+
+- **Question related to blade tags**
