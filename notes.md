@@ -249,3 +249,59 @@ Contains ***UI*** part.
         @include('common.inner', ['page'=> 'This is about page'])
         @include('common.doNoExistsFile'); // file does not exists show error
         @includeIf(If'common.doNot') // does not show error
+
+### Components
+
+- Components are reusable pieces of code that can be used throughout your application.
+
+- Components are typically used to render a portion of a view, such as a button or a form
+
+- Components are typically stored in the **`resources/views/components`** directory.
+
+- Components can be rendered using the **`@component`** directive.
+
+- Difference between ***function*** and ***component*** 
+  
+  - ***function*** contains code of only the language
+  - **components** can contain ui part also
+
+- **How to make a component**
+  
+      php artisan make:component component_name
+  
+    **Example**:-
+  
+      php artisan make:component messageBanner
+  
+    This command create two files
+  
+  - one in ***app/View/Components/messageBanner.php***
+  - one in ***resources/views/components/message-banner.blade.php***
+  
+  **How to use Component**
+  
+  Let's suppose we want to use our **message-banner** component in home page then
+  
+      <x-message-banner />
+      <h1>Home Page</h1>
+  
+  **Pass data to component**
+
+- **Step 1** -> in you **home.blade.php**
+  
+      <x-message-banner msg="User Login Successfull" class="warning" />
+      <x-message-banner msg="User Signup Successfull" class="error" />
+      <h1>Home Page</h1>
+
+- **Step 2** -> in your **app/View/Components/messageBanner.php**
+  
+      public function __construct($msg, $class)
+      {
+          //
+          $this->msg=$msg;
+          $this->class=$class;
+      }
+- **STep 3** -> in you **message-banner.blade.php**
+      <div>
+            <span class="{{ $class }}">{{ $msg }}</span>
+      <div>

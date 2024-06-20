@@ -73,3 +73,24 @@
   
   - **Answer**
     - It is similar to passing data to views
+
+### Components
+
+-  **What are components**
+    **Answer**
+    - Components are reusable pieces of code that can be used throughout your application.
+
+    - Components are typically used to render a portion of a view, such as a button or a form
+
+    - Components are typically stored in the **`resources/views/components`** directory.
+
+    - Components can be rendered using the **`@component`** directive.
+
+    - Difference between ***function*** and ***component*** 
+  
+        - ***function*** contains code of only the language
+        - **components** can contain ui part also
+- **How to make a component**
+    **Answer**
+
+          php artisan make:component component_name
