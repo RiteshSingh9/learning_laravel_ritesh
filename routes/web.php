@@ -28,5 +28,6 @@ Route::get('/', function () {
 // Route::get('/test', [UserController::class, 'testView']);
 
 Route::get('/home', [UserController::class, 'userHome']);
-Route::get('/about', [UserController::class, 'userAbout']);
-
+// Route::get('/about', [UserController::class, 'userAbout']);
+Route::view('/user', 'user-form');
+Route::post('/user/add', [UserController::class, 'addUser']);

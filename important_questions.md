@@ -76,21 +76,36 @@
 
 ### Components
 
--  **What are components**
-    **Answer**
-    - Components are reusable pieces of code that can be used throughout your application.
-
-    - Components are typically used to render a portion of a view, such as a button or a form
-
-    - Components are typically stored in the **`resources/views/components`** directory.
-
-    - Components can be rendered using the **`@component`** directive.
-
-    - Difference between ***function*** and ***component*** 
+- **What are components**
+   **Answer**
   
-        - ***function*** contains code of only the language
-        - **components** can contain ui part also
+  - Components are reusable pieces of code that can be used throughout your application.
+  
+  - Components are typically used to render a portion of a view, such as a button or a form
+  
+  - Components are typically stored in the **`resources/views/components`** directory.
+  
+  - Components can be rendered using the **`@component`** directive.
+  
+  - Difference between ***function*** and ***component*** 
+    
+    - ***function*** contains code of only the language
+    - **components** can contain ui part also
+
 - **How to make a component**
     **Answer**
-
+  
           php artisan make:component component_name
+
+### Form
+
+**NOTE :-** when you submit any form with csrf token it will give error *page expired* error code *419*. To prevent this use ***@csrf*** inside your form.
+
+- What to do if we get error 419
+  
+  **Answer**
+  
+  Use @csrf token
+
+- **Difference between GET and POST request**
+- **How will you validate email**

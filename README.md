@@ -29,3 +29,7 @@ Learned about
 ## Chapter 5
 
 - Learned about components
+
+## Chapter 6
+
+- Learned about forms

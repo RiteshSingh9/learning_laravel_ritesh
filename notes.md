@@ -301,7 +301,47 @@ Contains ***UI*** part.
           $this->msg=$msg;
           $this->class=$class;
       }
+
 - **STep 3** -> in you **message-banner.blade.php**
+  
       <div>
             <span class="{{ $class }}">{{ $msg }}</span>
       <div>
+
+### Forms
+
+**NOTE :-** when you submit any form with csrf token it will give error *page expired* error code *419*. To prevent this use ***@csrf*** inside your form.
+
+- #### Form Validation
+  
+  Laravel has inbuilt mathod for validation called validate();
+
+- **How to use**
+  
+        $req->validate([
+            'username'=> 'required | min:3 | max:30',
+            "email"=> 'required | email',
+            'city'=> 'required | min:3 | max:3',
+            'skills'=> 'required',
+        ]);
+
+- **Show Errors**
+  
+        {{-- {{ print_r($errors) }} --}}
+        <!-- method 2 -->
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                <div>
+                    {{ $error }}
+                </div>
+            @endforeach
+        @endif
+        <!-- method 3 -->
+        <div class="form-group">
+            <input type="text" class="form-input" placeholder="Enter user name" name="username" /> <br/>
+            <span style="color: saddlebrown">
+                @error('username')
+                {{ $message }}
+                @enderror
+            </span>
+        </div>
