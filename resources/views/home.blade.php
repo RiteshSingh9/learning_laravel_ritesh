@@ -6,6 +6,7 @@
     <title>Made by Ritesh</title>
 </head>
 <body>
+    @include('common.header')
     <h1>This page is made by {{ $name }}</h1>
     <h3>php default rand() function generate randome value <strong>{{ rand() }}</strong></h3>
     <h3>{{ $users[2] }}</h3>

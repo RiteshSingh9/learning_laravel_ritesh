@@ -54,3 +54,22 @@
 - **What is blade ?**
 
 - **Question related to blade tags**
+
+### Subviews
+
+- **What are subviews**
+  
+  - **Answer**
+    
+    - Subviews are used to break up a large view into smaller, more manageable pieces.
+    
+    - Subviews are typically used to render a portion of a view, such as a header or footer
+    
+    - Subviews are typically stored in the **`resources/views`** directory, just like regular views.
+    
+    - Subviews can be rendered using the **`@include`** directive.
+
+- **How to pass data to subview**
+  
+  - **Answer**
+    - It is similar to passing data to views

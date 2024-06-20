@@ -28,3 +28,5 @@ Route::get('/', function () {
 // Route::get('/test', [UserController::class, 'testView']);
 
 Route::get('/home', [UserController::class, 'userHome']);
+Route::get('/about', [UserController::class, 'userAbout']);
+

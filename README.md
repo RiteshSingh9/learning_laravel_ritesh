@@ -17,3 +17,9 @@ Learned about
 ## Chapter 3
 
 - Learned about Views
+
+## Chapter 4
+- Learned about blade template engine
+
+## Chapter 4
+- Learned about subviews and passing data to subviews

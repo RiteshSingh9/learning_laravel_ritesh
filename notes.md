@@ -164,22 +164,88 @@ Contains ***UI*** part.
 - To use blade template view should end with **.blade.php**
 
 - See home.blade.php for tags
+
 - **@extends** -> extends the layout
+
 - **@section** -> defines a section of content
+
 - **@yield** -> displays the content of a section
+
 - **@include** -> includes a view
+
 - **@each** -> loops through an array and includes a view for each item
+
 - **@foreach** -> loops through an array
+
 - **@if** -> conditional statement
+
 - **@unless** -> conditional statement
+
 - **@for** -> loops through an array
+
 - **@while** -> loops through an array
+
 - **@php** -> executes raw PHP code
+
 - **{{ }}** -> displays the value of a variable
+
 - **{!! !!}** -> displays the value of a variable without escaping
+
 - **@csrf** -> generates a CSRF token field
+
 - **@method** -> generates a form method spoofing field
+
 - **@push** -> pushes a value onto a stack
+
 - **@stack** -> displays the contents of a stack
+
 - **@verbatim** -> prevents Blade from compiling the contents of the block
-See laravel docs for other tags
+  See laravel docs for other tags
+
+### Subviews
+
+- Subviews are used to break up a large view into smaller, more manageable pieces.
+
+- Subviews are typically used to render a portion of a view, such as a header or footer
+
+- Subviews are typically stored in the **`resources/views`** directory, just like regular views.
+
+- Subviews can be rendered using the **`@include`** directive.
+
+- **How to make a subviews**
+  
+  - It's similar to making of normal view
+    
+        php artisan make:view folder_name.view_name
+    
+    Example
+    
+        php artisan make:view common.header
+
+- **How to include subviews**
+  
+      @include("folder_name_.view_name")
+  
+    **Example**:- we want to include subviews in about page
+  
+        @include("common.header")
+        <h2>This is about page</h2>
+        @include('common.inner')
+
+- **How to pass data to subviews**
+  
+   **Example**:- we want to pass data to about page
+  
+        @include("common.header")
+        <h2>This is about page</h2>
+        @include('common.inner', ['page'=> 'This is about page'])
+  
+  - 
+
+- **What is subview does not exists**
+  
+        @include("common.header")
+        <h2>This is about page</h2>
+        @include('common.inner', ['page'=> 'This is about page'])
+        @include('common.doNoExistsFile'); // file does not exists show error
+        @includeIf(If'common.doNot') // does not show error
