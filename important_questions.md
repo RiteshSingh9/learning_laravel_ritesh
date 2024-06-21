@@ -114,5 +114,3 @@
 - **What are validation rule ?**
 
 - **How to make validation rule ?**
-  
-  

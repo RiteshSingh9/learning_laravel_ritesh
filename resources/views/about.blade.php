@@ -37,8 +37,9 @@
 </style>
 {{-- @include('common.header') --}}
 
-<x-message-banner msg="Went something wrong !!" class="btn warning" />
+{{-- <x-message-banner msg="Went something wrong !!" class="btn warning" /> --}}
 <h1>About Page</h1>
+<h3>Previous URL: {{ URL::previous() }}</h3>
 {{-- <h3>Welcome {{ $name }}</h3> --}}
 
 {{-- @include('common.inner', ['page' => "this is about page"]); --}}

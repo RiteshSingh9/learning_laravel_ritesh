@@ -41,3 +41,26 @@ Learned about
 ## Chapter 8
 
 - Custom Validation Rules
+- Command to make custom validation.
+
+## Chapter 9
+
+- URL Generation
+  
+  - Get current URL
+  - Get full URL
+  - Get the previous URL
+  - Make link URL
+  - Make URL with child path
+  - Interview Question
+
+- Name Routes
+  
+  We define **names for routes** 
+  
+  - It is used when we have to use **large urls**
+  - How to make a named Route ?
+  - How to use named Route from view ?
+  - How to use named Route from controller?
+  - How to pass params in named route ?
+  - Interview Questions

@@ -472,3 +472,75 @@ Contains ***UI*** part.
 **:attribute** will is a placeholder that will replace it with field name 
 
 Then use it as normal validation 
+
+### URL Generation
+
+- **What is URL generation**
+  
+  - It's a laravel **feature** to **routing, link and url**related works easily.
+  - It's done by using function.
+
+- **How to get current url**
+  
+  - **Method 1**
+    
+    Use this command in your view.
+    
+        {{ URL::current() }}
+        // or
+        {{ url()->current() }}
+  
+  - **Issue** -> can't get parameters
+    
+    To get **full URL*** with parameters use 
+    
+        {{ URL::full() }}
+        // or 
+        {{ url()->full() }}
+    
+    To get **previous URL** use
+    
+        {{ URL::previous() }}
+        // or
+        {{ url()->previous() }}
+    
+    To make **URL**
+    
+        <a href="/about">About</a>
+        // or
+        <a href="{{ URL::to('about') }}">About</a>
+    
+    For url with **parameters** like /about/{name} use: 
+    
+        <a href="{{ URL::to('about', ['anil'])}}">About Anil</a>
+
+- #### Named Routes
+  
+  Let's suppose we have a route **/home/profile/ritesh** then use
+  
+      Route::view('/home/profile/ritesh', 'home')->name('userProfile');
+  
+  In your view
+  
+      route('userProfile')
+      <a href="{{ route('userProfile') }}">Go to Ritesh's Profile</a>
+  
+  To use named route in controller
+  Let's suppose we want to redirect the **/show** url to **/home/profile/ritesh** then
+  
+      return redirect()->to('home/profile/ritesh');
+      // or this way for named route
+      return to_route('userProfile');
+  
+  To use parameter like if we want to go to url '**/home/profile/{name}**' use 
+  
+      Route::view('/home/profile/{name}', 'home')->name('user');
+      Route::get('/user', [HomeController::class, 'user']);
+  
+  In your Controller
+  
+      function user() {
+        return to_route('user', ["name"=> 'raunak']);
+      }
+  
+  **NOTE** -> key in controller should be excatly same as in url parameter

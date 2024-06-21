@@ -73,7 +73,7 @@
         <i>{{ $user }} </i> <br />
         @endforeach
     </div> --}}
-    <x-message-banner msg="User Login successfull" class="success" />
+    {{-- <x-message-banner msg="User Login successfull" class="success" />
     <br />
     <x-message-banner msg="User Signup Successfull" class="success" />
     <br />
@@ -81,7 +81,13 @@
     <br />
     <x-message-banner msg="Incorrect password please try again." class="error" />
     <br />
-    <x-message-banner msg="It's a warning for you" class="warning" />
+    <x-message-banner msg="It's a warning for you" class="warning" /> --}}
     <h1>Home Page</h1>
+    {{-- <h3>URL{{ URL::current() }}</h3>
+    <h4>url() {{ url()->current() }}</h4>
+    <h3>{{ URL::full() }}</h3>
+    <h4>url() {{ url()->previous() }}</h4>
+    <a href="/about">about</a> --}}
+    {{-- Named Routes --}}
 </body>
 </html>
