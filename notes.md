@@ -345,3 +345,130 @@ Contains ***UI*** part.
                 @enderror
             </span>
         </div>
+
+- **Custom Validation**
+  
+  - internally **validation.php**file is responsible for displaying message.
+  
+  - by default you can't see it 
+  
+  - to see it you have to use command
+    
+        php artisan land:publish
+  
+  - This command will create another folder called **lang**. This folder will contain validation.php
+  
+  - If you want to make changes for complete project then **only change this file**
+  
+  - For one or two files use this method.
+    
+        $req->validate([
+            'username'=> 'required | min:3 | max:20',
+            "email"=> 'required | email',
+            'city'=> 'required | min:3 | max:50',
+            'skills'=> 'required',
+        ],
+        [
+            'username.required'=>'Username cannot be empty !!',
+            'username.min'=>'Username must be at least 3 characters !!',
+            'username.max'=>'Username must be at most 30 characters !!',
+            'email.required'=>'Email cannot be empty !!',
+            'email.email'=>'Email must be valid !!',
+            'city.required'=>'City cannot be empty !!',
+            'city.min'=>'City must be at least 3 characters !!',
+            'city.max'=>'City must be at most 3 characters !!',
+            'skills.required'=>'Skills cannot be empty !!',
+        ]
+    
+      );
+
+- **To prevent getting remove**
+  Use **old('varaible_name')** in value field of **input**
+  
+  **Example**
+  
+      @csrf
+      <div class="form-group">
+          <input type="text" class="form-input" placeholder="Enter user name" name="username"  value="{{ old('username') }}" />
+          <br/>
+          <span style="color: saddlebrown">
+              @error('username')
+               {{ $message }}
+              @enderror
+          </span>
+      </div>
+  
+  **For checkboxes it's syntax is**
+  
+      <input type="checkbox" id="php" class="form-input" name="skills[]" value="php" {{ old('skills', []) ? (in_array('php', old('skills', [])) ? 'checked' : '') : '' }}/>
+  
+  <label for="php">PHP</label>
+
+- **To use a class only if there is an error**
+  
+      <input type="text" class="{{ $errors->first('variable_name') }}" />
+  
+    **Example**
+  
+      <input type="text" class="form-input {{ $errors->first('username')?'input-error':'' }}" placeholder="Enter user name" name="username"  value="{{ old('username') }}" />
+
+- **Custom validation Rule**
+  These are mode for validation that are not available in laravel
+  **Example**
+  You want the username must only be in Capital letter
+  **Command to make**
+  
+      php artisan make:rule Your_rule_name
+  
+  This command will make folder **Rules**  in **app** directory that will contain all your rules.
+  
+      php artisan make:rule Uppercase
+  
+  This command will create file **Uppercase.php** in **app/Rules** folder
+  **Initial code of this file will look like this**
+  
+        <?php
+        namespace App\Rules;use Closure;
+        use Illuminate\Contracts\Validation\ValidationRule;
+      
+        class Uppercase implements ValidationRule
+        {
+        /**
+          * Run the validation rule.
+          *
+          * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+          */
+        public function validate(string $attribute, mixed $value, Closure $fail): void
+        {
+            //
+        }
+        }
+  
+  write you validation rules in **validate()**
+  **Example**
+  Let's suppose you want to the username to be in uppercase only then 
+    **uppercase.php**
+  
+          <?php
+          namespace App\Rules;
+          use Closure;
+          use Illuminate\Contracts\Validation\ValidationRule;
+          class Uppercase implements ValidationRule
+          {
+            /**
+              * Run the validation rule.
+              *
+              * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+            */
+            public function validate(string $attribute, mixed $value, Closure $fail): void
+            {
+                //
+                if(strtoupper($value) != $value) {
+                    $fail('the :attribute must be in uppercase');
+                }
+            }
+          }
+
+**:attribute** will is a placeholder that will replace it with field name 
+
+Then use it as normal validation 

@@ -108,4 +108,11 @@
   Use @csrf token
 
 - **Difference between GET and POST request**
-- **How will you validate email**
+
+- **Command for Validation Rule**
+
+- **What are validation rule ?**
+
+- **How to make validation rule ?**
+  
+  

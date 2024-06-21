@@ -33,3 +33,11 @@ Learned about
 ## Chapter 6
 
 - Learned about forms
+
+## Chapter 7
+
+- Custom Validation
+
+## Chapter 8
+
+- Custom Validation Rules

@@ -2,7 +2,7 @@
     <h2>Add New User</h2>
 
     {{-- {{ print_r($errors) }} --}}
-    {{-- @if($errors->any())
+    {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div>
                 {{ $error }}
@@ -13,34 +13,40 @@
     <form action="user/add" method="POST">
         @csrf
         <div class="form-group">
-            <input type="text" class="form-input" placeholder="Enter user name" name="username" />
-            <br/>
+            <input type="text" class="form-input {{ $errors->first('username') ? 'input-error' : '' }}"
+                placeholder="Enter user name" name="username" value="{{ old('username') }}" />
+            <br />
             <span style="color: saddlebrown">
                 @error('username')
-                {{ $message }}
+                    {{ $message }}
                 @enderror
             </span>
         </div>
         <div class="form-group">
-            <input type="email" class="form-input" placeholder="Enter your Email..." name="email" />
-            <br/>
+            <input type="email" class="form-input {{ $errors->first('email') ? 'input-error' : '' }}""
+                placeholder="Enter your Email..." name="email" value="{{ old('email') }}" />
+            <br />
             <span style="color: saddlebrown">
                 @error('email')
-                {{ $message }}
+                    {{ $message }}
                 @enderror
             </span>
         </div>
         <div class="form-group">
-            <input type="checkbox" id="php" class="form-input" name="skills[]" value="php" />
+            <input type="checkbox" id="php" class="form-input" name="skills[]" value="php"
+                {{ old('skills', []) ? (in_array('php', old('skills', [])) ? 'checked' : '') : '' }} />
             <label for="php">PHP</label>
-            <input type="checkbox" id="node" class="form-input" name="skills[]" value="node" />
+            <input type="checkbox" id="node" class="form-input" name="skills[]" value="node"
+                {{ old('skills', []) ? (in_array('node', old('skills', [])) ? 'checked' : '') : '' }} />
             <label for="node">Node</label>
-            <input type="checkbox" id="java" class="form-input" name="skills[]" value="java" />
+            <input type="checkbox" id="java" class="form-input" name="skills[]" value="java"
+                {{ old('skills', []) ? (in_array('java', old('skills', [])) ? 'checked' : '') : '' }} />
             <label for="java">Java</label>
-            <br/>
+
+            <br />
             <span style="color: saddlebrown">
                 @error('skills')
-                {{ $message }}
+                    {{ $message }}
                 @enderror
             </span>
         </div>
@@ -76,6 +82,7 @@
         padding: 0;
         box-sizing: border-box;
     }
+
     .container {
         width: 400px;
         height: 500px;
@@ -83,8 +90,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgb(255, 185, 185);
+        background: rgb(255, 232, 232);
     }
+
     form {
         width: 400px;
         height: 400px;
@@ -93,9 +101,11 @@
         justify-content: center;
         align-items: center;
     }
+
     .form-group {
         margin: 10px 5px;
     }
+
     .form-input {
         padding: 5;
         font-size: 14px;
@@ -103,6 +113,7 @@
         border: 2px solid orange;
         border-radius: 5px;
     }
+
     .submitBtn {
         background-color: transparent;
         color: saddlebrown;
@@ -114,16 +125,22 @@
         cursor: pointer;
         transition: all 0.4s ease-out
     }
+
     .submitBtn:hover {
         background: saddlebrown;
         color: white;
         transition: all 0.4s ease-in;
     }
+
     .form-select {
         width: 100%;
         padding: 4px 20px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 16px;
         border-radius: 5px;
+    }
+
+    .input-error {
+        border: 2px solid red !important;
     }
 </style>
