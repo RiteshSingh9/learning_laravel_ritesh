@@ -577,4 +577,87 @@ Then use it as normal validation
         Route::get("/delete", 'delete');
         Route::get('/about/{name}', 'about');
       });
-      
+
+### Middleware
+
+- Middleware is a layer between the user the Application.
+
+- Here we can check conditions or filter user requests.
+  
+  **Example**
+  
+  - check user is logged in or not
+  
+  - block specific **conuntry's IP**
+  
+  - check user age.
+
+- If condition pass then only request will reach to middleware.
+
+- #### Laravel has 3 type of middleware
+  
+  - **Global Middleware** 
+  
+  - **Route Middleware**
+  
+  - **Group Middleware**
+
+- ##### Global Middlewares
+  
+  Command to make a middleware
+  
+      php artisan make:middleware middleware_name
+  
+    Create **Middleware** folder in **app** directory
+    **Example**
+  
+       php artisan make:middleware AgeCheck
+  
+  **How to apply it ?**
+  There are 2 ways to apply it
+  Apply it in **bootstrap/app.php** file's **withMiddleware()**
+  
+      $middleware->append(Middlewarename::class);
+  
+  **Example**
+    $middleware->append(AgeCheck::class);
+  
+  Now if we hit any url this middleware will run.
+
+- ##### Group Middlewares
+  
+  - what is it ?
+  
+  - How to register middleware in group ?
+  
+  - Apply a group of middleware to Route Group
+  
+  - Apply group of middleware to Single Route.
+  
+  - ###### Make a group
+    
+        $middleware->appendToGroup('check1', [
+            AgeCheck::class,
+            CountryCheck::class
+        ]);
+  
+  - ###### Apply middleware group on a single route
+    
+        Route::view('home', 'home')->middleware('check1');
+    
+    **check1** is the name of group
+  
+  - ###### Apply on group of routes**
+    
+    In web.php
+    
+          Route::middleware('check1')->group(function () {
+            Route::view('home', 'home');
+            Route::view('about', 'about');
+          });
+  
+  - ###### Routes Middleware
+    
+    Apply multiple middleware to a single route 
+    
+        Route::view('home', 'home')->middleware([AgeCheck::class, CountryCheck::class]);

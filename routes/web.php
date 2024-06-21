@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AgeCheck;
+use App\Http\Middleware\CountryCheck;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +56,10 @@ Route::view('/home/profile/{name}', 'home')->name('user');
 // Route::get('student/show', [HomeController::class, 'show']);
 // Route::get('student/add', [HomeController::class, 'add']);
 
+// Route::view('home', 'home')->middleware('check1');
+Route::view('home', 'home')->middleware([AgeCheck::class, CountryCheck::class]);
+Route::view('about', 'about');
+
 // Route grouping with prefix
 Route::prefix('student')->group(function () {
     Route::view('home', 'home');
@@ -81,3 +87,8 @@ Route::controller(StudentController::class)->group(function () {
     Route::get("/delete", 'delete');
     Route::get('/about/{name}', 'about');
 });
+
+// Route::middleware('check1')->group(function () {
+//     Route::view('home', 'home');
+//     Route::view('about', 'about');
+// });

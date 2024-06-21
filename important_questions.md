@@ -120,3 +120,9 @@
 - **Type of Route Grouping**
 
 - **How to make route group with Controller**
+
+### Middlewares
+
+- **What are middleware?**
+- **Command to make the ?**
+- **Types of Middleware ?**
