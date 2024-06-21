@@ -114,3 +114,9 @@
 - **What are validation rule ?**
 
 - **How to make validation rule ?**
+
+### Route Grouping
+
+- **Type of Route Grouping**
+
+- **How to make route group with Controller**

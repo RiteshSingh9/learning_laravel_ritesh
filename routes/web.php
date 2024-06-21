@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/home', function () {
 //     return view('home');
@@ -14,19 +15,20 @@ use App\Http\Controllers\UserController;
 
 // route::redirect('/', '/home'); // redirect welcome page to home page route
 
-Route::view('/', 'home');
-Route::view('/home', 'home');
-Route::view('/welcome', 'welcome');
+// Route::view('/', 'home');
+// Route::view('/home', 'home');
+// Route::view('/welcome', 'welcome');
 
-Route::view('/user', 'user');
-Route::view('/about', 'about');
-Route::view('/about/{name}', 'about');
+// Route::view('/user', 'user');
+// Route::view('/about', 'about');
+// Route::view('/about/{name}', 'about');
+
 // Named Routes
 // Route::view('/home/profile/ritesh', 'home')->name('userProfile');
 Route::view('/home/profile/{name}', 'home')->name('user');
 
-Route::get('/show', [HomeController::class, 'show']);
-Route::get('/user', [HomeController::class, 'user']);
+// Route::get('/show', [HomeController::class, 'show']);
+// Route::get('/user', [HomeController::class, 'user']);
 
 
 
@@ -47,3 +49,35 @@ Route::get('/user', [HomeController::class, 'user']);
 // Route::view('/user', 'user-form');
 // Route::post('/user/add', [UserController::class, 'addUser']);
 
+// Route Grouping with prefix
+// Route::view('student/home', 'home');
+// Route::get('student/show', [HomeController::class, 'show']);
+// Route::get('student/add', [HomeController::class, 'add']);
+
+// Route grouping with prefix
+Route::prefix('student')->group(function () {
+    Route::view('home', 'home');
+    Route::get('show', [HomeController::class, 'show']);
+    Route::get('add', [HomeController::class, 'add']);
+});
+
+Route::prefix('student/india')->group(function () {
+    Route::view('home', 'home');
+    Route::get('show', [HomeController::class, 'show']);
+    Route::get('add', [HomeController::class, 'add']);
+});
+
+// route grouping with controller
+
+// normal way
+// Route::get("/show", [StudentController::class, 'show']);
+// Route::get("/add", [StudentController::class, 'add']);
+// Route::get("/delete", [StudentController::class, 'delete']);
+
+// controller way
+Route::controller(StudentController::class)->group(function () {
+    Route::get("/show", 'show');
+    Route::get("/add", 'add');
+    Route::get("/delete", 'delete');
+    Route::get('/about/{name}', 'about');
+});

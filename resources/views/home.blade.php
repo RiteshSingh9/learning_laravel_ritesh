@@ -89,5 +89,7 @@
     <h4>url() {{ url()->previous() }}</h4>
     <a href="/about">about</a> --}}
     {{-- Named Routes --}}
+
+    {{-- Route Grouping --}}
 </body>
 </html>
