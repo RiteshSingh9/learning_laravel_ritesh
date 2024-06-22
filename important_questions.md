@@ -126,3 +126,15 @@
 - **What are middleware?**
 - **Command to make the ?**
 - **Types of Middleware ?**
+
+### Database
+
+- **Command for running migration**
+
+- **How to handle SQLSTATE[42S02]  error ?**
+  
+  **Answer**
+  
+  - Laravel by default store session in database and if it does not found a table for session in database it shows this error 
+  
+  - To handle this errror we can run migration or set **SESSION_DRIVER=file**. However it is not recommended to do this.

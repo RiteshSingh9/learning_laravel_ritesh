@@ -48,27 +48,43 @@ Learned about
 - URL Generation
   
   - Get current URL
+  
   - Get full URL
+  
   - Get the previous URL
+  
   - Make link URL
+  
   - Make URL with child path
+  
   - Interview Question
-
+  
   - ### Name Routes
-  
+    
     We define **names for routes** 
-  
-      - It is used when we have to use **large urls**
-      - How to make a named Route ?
-      - How to use named Route from view ?
-      - How to use named Route from controller?
-      - How to pass params in named route ?
-      - Interview Questions
+    
+    - It is used when we have to use **large urls**
+    - How to make a named Route ?
+    - How to use named Route from view ?
+    - How to use named Route from controller?
+    - How to pass params in named route ?
+    - Interview Questions
 
 ## Chapter 10
 
 - Middlewares
-    - What are middleware?
-    - Command to make the ?
-    - Types of Middleware ?
+  - What are middleware?
+  - Command to make the ?
+  - Types of Middleware ?
 
+## Chapter 11
+
+- Database
+  
+  - Connecting to Database
+  
+  - Running migration
+  
+  - Getting data from database
+  
+  - Display data in view

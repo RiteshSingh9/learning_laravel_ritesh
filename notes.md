@@ -661,3 +661,38 @@ Then use it as normal validation
     Apply multiple middleware to a single route 
     
         Route::view('home', 'home')->middleware([AgeCheck::class, CountryCheck::class]);
+
+### Connecting to MySQL Database
+
+Laravel by default store session in database
+we will get 
+
+    SQLSTATE[42S02]: Base table or view not found: 1146 Table 'learning_laravel.sessions' doesn't exist (Connection: mysql, SQL: select * from `sessions` where `id` = HsLtQovJa09VCEkCLq6WIV1qmpBf6UFEC9v4Ovin limit 1)
+
+if we don't have any table in id
+
+- you can change ***SESSION_DRIVER*** to file to prevent error **(not recommended)**
+
+- Make Database
+
+- Update ENV file
+  
+  - update .env file with your credentials
+
+- Run migration
+    **Command**
+  
+          php artisan migrate
+  
+    This commands create tables required for laravel
+  
+          0001_01_01_000000_create_users_table
+          0001_01_01_000001_create_cache_table
+          0001_01_01_000002_create_jobs_table
+
+- Running Queries Directly
+    
+          use Illuminate\Support\Facades\DB;
+          DB::select("your query");
+          
+    
