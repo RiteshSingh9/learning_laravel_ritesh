@@ -88,3 +88,9 @@ Learned about
   - Getting data from database
   
   - Display data in view
+
+## Chapter 12
+
+- Eloquent model
+  
+  - 

@@ -138,3 +138,11 @@
   - Laravel by default store session in database and if it does not found a table for session in database it shows this error 
   
   - To handle this errror we can run migration or set **SESSION_DRIVER=file**. However it is not recommended to do this.
+
+## Eloquent Model
+
+- **What is Eloquent Model**
+
+- **What to do if table name and model name don't match ?**
+
+- **How to inspect a Model**

@@ -691,8 +691,61 @@ if we don't have any table in id
           0001_01_01_000002_create_jobs_table
 
 - Running Queries Directly
-    
+  
           use Illuminate\Support\Facades\DB;
           DB::select("your query");
-          
+
+### Eloquent Model
+
+- What is Model
+  
+  - Part of MVC architecture
+  - This is a PHP file with class.
+  - It is used to interact with database.
+  - Here we write our Business logic and DB connection.
+  - It is used to fetch data from database and perform operations on it.
+  - In laravel we have an **Object-relational mapper (ORM)** feature also called **Eloquent Model**.
+
+- How to make a model
+  
+      php artisan make:model Model_Name
+      # Model_Name is Always Singular and table name is always Plural
+  
+    **Example**
+  
+      php artisan make:model Student
+  
+    Make a file Student.php in **app/Models** folder.
+
+- If table and model name are not matching then use
+  
+      protected $table="collage_students";
+  
+    in you model;
+  
+  **Example**
+  
+      class Student extends Model
+      {
+          use HasFactory;
+          protected $table="collage_students";
+      }
+
+- #### Inspecting Model
+  
+  - It's a feature in Laravel
+  
+  - It gives the details of table
+  
+  - How to use it.
     
+        php artisan model:show Model_name
+    
+      **Example**
+    
+        php artisan model:show Student
+  
+  - It won't work if
+    
+    - you have't configured database
+    - You haven't linked model name and table name properly
