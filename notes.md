@@ -750,6 +750,11 @@ if we don't have any table in id
     - you have't configured database
     - You haven't linked model name and table name properly
 
+- #### Eloquent Model: Query Builder
+    - Query Builder are function that build db queries and execute them.
+    - When used with **Model** it then it's called **eloquent model query builder**.
+    - when used with **DB** class then it is called **db:query builder**.
+
 ### HTTP Client
 
 - It's used to call **APIs** in laravel

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -101,12 +102,50 @@ class UserController extends Controller
     //     return view('user', ["users"=> $users]);
     // }
 
-    function get_users() {
-        $response = Http::get('https://jsonplaceholder.typicode.com/users/1');
-        // return $response;
-        $data=$response->body();
-        // return $response->status();
-        // return $response->headers();
-        return view('user', ["users"=> json_decode($data)]);
+    // function get_users() {
+    //     $response = Http::get('https://jsonplaceholder.typicode.com/users/1');
+    //     // return $response;
+    //     $data=$response->body();
+    //     // return $response->status();
+    //     // return $response->headers();
+    //     return view('user', ["users"=> json_decode($data)]);
+    // }
+
+    function queries() {
+        // $res = User::all();
+        // $res = User::get();
+        // $res = User::where('email', 'ritesh@test.com')->get();
+        // $res = User::where('email', 'ritesh@test.com')->first();
+        // $res = User::find(1);
+        // $res = User::insert([
+        //     'name'=>'Ritesh 3',
+        //     'email' => 'ritesh3@test.com',
+        //     'password'=> '123456'
+        // ]);
+        // if ($res) {
+        //     return 'data inserted';
+        // } else {
+        //     return 'data not inserted';
+        // }
+
+        // $res = User::where('email', 'ritesh@test.com')->update([
+        //     'email' => 'ritesh@update.com',
+        // ]);
+        // if ($res) {
+        //     return 'data updated';
+        // } else {
+        //     return 'data not updated';
+        // }
+
+        $res = User::where('email', 'raunak@test.com')->delete();
+        if ($res) {
+            return 'data deleted';
+        } else {
+            return 'data not deleted';
+        }
+
+
+
+        // return json_encode($res);
     }
 }

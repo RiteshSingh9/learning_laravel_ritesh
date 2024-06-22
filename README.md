@@ -96,3 +96,7 @@ Learned about
 ## Chapter 13
 
 - Http Client
+
+## Chapter 14
+
+- Eloquent Model: Query Builder
