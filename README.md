@@ -92,5 +92,7 @@ Learned about
 ## Chapter 12
 
 - Eloquent model
-  
-  - 
+
+## Chapter 13
+
+- Http Client

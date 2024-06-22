@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Symfony\Contracts\Service\Attribute\Required;
 
@@ -47,7 +48,7 @@ class UserController extends Controller
     //     $users=['Ritesh', 'Riya', 'Tanu', 'Raunak'];
     //     return view('home', ['name'=> $name, 'users'=> $users]);
     // }
-
+    // students
     // function userAbout() {
     //     return view('about');
     // }
@@ -93,10 +94,19 @@ class UserController extends Controller
     //     echo "Age = ".$req->age;
     // }
 
-    function users() {
+    // function users() {
 
-        // return DB::select("SELECT * FROM `users`");
-        $users = DB::select("SELECT * FROM `users`");
-        return view('user', ["users"=> $users]);
+    //     // return DB::select("SELECT * FROM `users`");
+    //     $users = DB::select("SELECT * FROM `users`");
+    //     return view('user', ["users"=> $users]);
+    // }
+
+    function get_users() {
+        $response = Http::get('https://jsonplaceholder.typicode.com/users/1');
+        // return $response;
+        $data=$response->body();
+        // return $response->status();
+        // return $response->headers();
+        return view('user', ["users"=> json_decode($data)]);
     }
 }

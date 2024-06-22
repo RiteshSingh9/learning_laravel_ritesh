@@ -93,6 +93,6 @@ Route::get('/', function () {
 //     Route::view('about', 'about');
 // });
 
-Route::get('users', [UserController::class, 'users']);
-
+// Route::get('users', [UserController::class, 'users']);
+Route::get('users', [UserController::class, 'get_users']);
 Route::get('/students', [StudentController::class, 'get_students']);

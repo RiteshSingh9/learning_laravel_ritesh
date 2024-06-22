@@ -749,3 +749,15 @@ if we don't have any table in id
     
     - you have't configured database
     - You haven't linked model name and table name properly
+
+### HTTP Client
+
+- It's used to call **APIs** in laravel
+
+- How to use it 
+  
+      use Illuminate\Support\Facades\Http;
+      
+      function get_users() {
+          $response = Http::get('url');
+      }

@@ -146,3 +146,9 @@
 - **What to do if table name and model name don't match ?**
 
 - **How to inspect a Model**
+
+## Http Client
+
+- **What is Http Client ?**
+
+- 
