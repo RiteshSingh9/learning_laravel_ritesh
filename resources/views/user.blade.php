@@ -25,7 +25,7 @@
         @endforeach
 
 </table> --}}
-{{ print_r($users) }}
+{{-- {{ print_r($users) }}
 <ul>
     <li>
         <span>Name: <strong> {{ $users->name }} </strong></span>
@@ -45,4 +45,15 @@
     <li>
         <span>Address: <strong> {{ $users->address->street }}, {{ $users->address->city }} </strong></span>
     </li>
-</ul>
+</ul> --}}
+
+<form action="/user" method="post">
+    @csrf
+    <input type="text" name="username" id="username" placeholder="Enter Username">
+    <br>
+    <br>
+    <input type="text" name="password" id="password" placeholder="Enter password">
+    <br>
+    <br>
+    <button type="submit">Login</button>
+</form>

@@ -95,5 +95,9 @@ Route::get('/', function () {
 
 // Route::get('users', [UserController::class, 'users']);
 // Route::get('users', [UserController::class, 'get_users']);
-Route::get('users', [UserController::class, 'queries']);
-Route::get('/students', [StudentController::class, 'get_students']);
+// Route::get('users', [UserController::class, 'queries']);
+// Route::get('/students', [StudentController::class, 'get_students']);
+
+// Http Request Class
+Route::view('form', 'user');
+Route::post('user', [UserController::class, 'login']);

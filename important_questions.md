@@ -151,4 +151,10 @@
 
 - **What is Http Client ?**
 
-- 
+## Eloquent Model: Query Builder
+
+- How to set timestap false ?
+
+### Http request class
+
+- **what is difference between input() and   collect() methods**

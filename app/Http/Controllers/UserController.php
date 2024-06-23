@@ -143,9 +143,35 @@ class UserController extends Controller
         } else {
             return 'data not deleted';
         }
-
-
-
         // return json_encode($res);
     }
+
+    function login(Request $request) {
+        // return json_encode($request);
+        echo "Request Method is : " . $request->method() ."<br />";
+        echo "Request Path is : " . $request->path() ."<br />";
+        echo "Request URL is : " . $request->url() ."<br />";
+        echo "Name is : " . $request->input('username') ."<br />";
+        echo "<pre>";
+        print_r($request->input());
+        print_r(($request->collect()));
+        echo "</pre>";
+        // if($request->isMethod('post')) {
+        //     echo 'execute code for post_method';
+        // } else {
+        //     echo 'execute code for other request';
+        // }
+        echo $request->host() . '<br />'; // get the host
+        if($request->is('user')) {
+            echo 'execute code for user path';
+        } else {
+            echo 'execute code for other path';
+        }
+
+        echo $request->ip(); // get ip from which request is coming;
+
+
+    }
+
+
 }

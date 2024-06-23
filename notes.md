@@ -750,11 +750,6 @@ if we don't have any table in id
     - you have't configured database
     - You haven't linked model name and table name properly
 
-- #### Eloquent Model: Query Builder
-    - Query Builder are function that build db queries and execute them.
-    - When used with **Model** it then it's called **eloquent model query builder**.
-    - when used with **DB** class then it is called **db:query builder**.
-
 ### HTTP Client
 
 - It's used to call **APIs** in laravel
@@ -766,3 +761,33 @@ if we don't have any table in id
       function get_users() {
           $response = Http::get('url');
       }
+
+### Http Request Class
+
+- Provide the data and detail of forms
+  
+  **Methods**
+  
+         function login(Request $request) {
+              echo "Request Method is : " . $request->method() ."<br />";
+              echo "Request Path is : " . $request->path() ."<br />";
+              echo "Request URL is : " . $request->url() ."<br />";
+              echo "Name is : " . $request->input('username') ."<br />";
+              echo "<pre>";
+              print_r($request->input());
+              print_r(($request->collect()));
+              echo "</pre>";
+              if($request->isMethod('post')) {
+                  echo 'execute code for post_method';
+              } else {
+                  echo 'execute code for other request';
+              }
+              echo $request->host() . '<br />'; // get the host
+              if($request->is('user')) {
+                  echo 'execute code for user path';
+              } else {
+                  echo 'execute code for other path';
+              }
+      
+              echo $request->ip(); // get ip from which request is coming;
+          }

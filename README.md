@@ -100,3 +100,7 @@ Learned about
 ## Chapter 14
 
 - Eloquent Model: Query Builder
+
+## Chapter 15
+
+- Http Request Class
