@@ -146,31 +146,46 @@ class UserController extends Controller
         // return json_encode($res);
     }
 
+    // function login(Request $request) {
+    //     // return json_encode($request);
+    //     echo "Request Method is : " . $request->method() ."<br />";
+    //     echo "Request Path is : " . $request->path() ."<br />";
+    //     echo "Request URL is : " . $request->url() ."<br />";
+    //     echo "Name is : " . $request->input('username') ."<br />";
+    //     echo "<pre>";
+    //     print_r($request->input());
+    //     print_r(($request->collect()));
+    //     echo "</pre>";
+    //     // if($request->isMethod('post')) {
+    //     //     echo 'execute code for post_method';
+    //     // } else {
+    //     //     echo 'execute code for other request';
+    //     // }
+    //     echo $request->host() . '<br />'; // get the host
+    //     if($request->is('user')) {
+    //         echo 'execute code for user path';
+    //     } else {
+    //         echo 'execute code for other path';
+    //     }
+
+    //     echo $request->ip(); // get ip from which request is coming;
+    // }
+
     function login(Request $request) {
-        // return json_encode($request);
-        echo "Request Method is : " . $request->method() ."<br />";
-        echo "Request Path is : " . $request->path() ."<br />";
-        echo "Request URL is : " . $request->url() ."<br />";
-        echo "Name is : " . $request->input('username') ."<br />";
-        echo "<pre>";
-        print_r($request->input());
-        print_r(($request->collect()));
-        echo "</pre>";
-        // if($request->isMethod('post')) {
-        //     echo 'execute code for post_method';
-        // } else {
-        //     echo 'execute code for other request';
-        // }
-        echo $request->host() . '<br />'; // get the host
-        if($request->is('user')) {
-            echo 'execute code for user path';
-        } else {
-            echo 'execute code for other path';
-        }
+        $request->session()->put('user', $request->input('username')); // set session value
+        return redirect('profile');
+    }
 
-        echo $request->ip(); // get ip from which request is coming;
+    function logout(Request $request) {
+        session()->pull('user');
+        return redirect('profile');
+    }
 
+    function add_new_user(Request $req) {
+        // your db code here
 
+        $req->session()->flash('message', 'User has been added successfully');
+        return redirect('user');
     }
 
 

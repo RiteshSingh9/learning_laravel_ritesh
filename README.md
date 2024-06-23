@@ -104,3 +104,11 @@ Learned about
 ## Chapter 15
 
 - Http Request Class
+
+## Chapter 16
+
+- Sessions
+
+## Chapter 17
+
+- Flash session

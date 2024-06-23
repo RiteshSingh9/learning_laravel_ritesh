@@ -158,3 +158,17 @@
 ### Http request class
 
 - **what is difference between input() and   collect() methods**
+
+## Session and Flash session
+
+- what is session ?
+
+- What is flash session ?
+
+- Difference between session and flash session
+
+- how to keep a flash session
+
+- use of keep() method
+
+- how to keep and array of flash session 

@@ -99,5 +99,15 @@ Route::get('/', function () {
 // Route::get('/students', [StudentController::class, 'get_students']);
 
 // Http Request Class
-Route::view('form', 'user');
-Route::post('user', [UserController::class, 'login']);
+// Route::view('form', 'user');
+// Route::post('user', [UserController::class, 'login']);
+
+// Session
+// Route::view('profile', 'profile');
+Route::view('login', 'login');
+Route::post('login', [UserController::class, 'login']);
+Route::get('logout', [UserController::class, 'logout']);
+
+// Flash session
+Route::view('user', 'user');
+Route::post('add', [UserController::class, 'add_new_user']);

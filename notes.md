@@ -791,3 +791,72 @@ if we don't have any table in id
       
               echo $request->ip(); // get ip from which request is coming;
           }
+
+### Session
+
+A session is a way to store and access data across multiple pages
+
+- It's used to store data temporarily
+
+- It's used to store data between multiple requests
+
+- It's used to store data on server side
+
+- It's used to store data securely
+
+- It's used to store data for a specific user
+
+- It's used to store data for a specific time period
+
+- It's used to store data in the service side
+
+- But managed with browser cookies
+  
+    $request->session()->put('session_variable_name', 'value');
+  
+    // to get value of session in controller
+    session('session_variable_name');
+
+    // to get value in view
+    <h1>
+    {{
+        session('user')
+    }}
+    </h1>
+
+**to delete a session value**
+
+    session->pull('session_variable_name');
+
+### Flash session
+
+Flash session is used to store data for a short period of time, typically for the next request.
+
+- A session is a way to store data only once.
+
+- After page refresh or anything route request data will removed from flash session
+
+- This is basically used for displaying error and success message.
+
+- It's used to store data between two requests.
+
+    // set flash session
+    $request->session()->flash('key', 'value');
+    
+    // to access value
+    session('key')
+    
+    // to keep value of flash session
+    {{ session()->reflash() }}
+
+what if you have multiple flash session but want to keep only some flash session from it.
+
+**Example**
+
+    // set flash session
+    $request->session()->flash('key1', 'value1');
+    $request->session()->flash('key2', 'value2');
+    
+    
+    // we want to keep only key2 then
+    session()->keep(['key2']); // keep contains array of flash session variables to keep.
