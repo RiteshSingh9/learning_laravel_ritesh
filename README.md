@@ -112,3 +112,7 @@ Learned about
 ## Chapter 17
 
 - Flash session
+
+## Chapter 18
+
+- **Upload and Display File**

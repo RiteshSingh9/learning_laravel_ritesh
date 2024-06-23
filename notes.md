@@ -816,9 +816,10 @@ A session is a way to store and access data across multiple pages
   
     // to get value of session in controller
     session('session_variable_name');
-
+  
     // to get value in view
-    <h1>
+  
+  <h1>
     {{
         session('user')
     }}
@@ -839,13 +840,13 @@ Flash session is used to store data for a short period of time, typically for th
 - This is basically used for displaying error and success message.
 
 - It's used to store data between two requests.
-
+  
     // set flash session
     $request->session()->flash('key', 'value');
-    
+  
     // to access value
     session('key')
-    
+  
     // to keep value of flash session
     {{ session()->reflash() }}
 
@@ -860,3 +861,42 @@ what if you have multiple flash session but want to keep only some flash session
     
     // we want to keep only key2 then
     session()->keep(['key2']); // keep contains array of flash session variables to keep.
+
+
+
+### Upload and Display File
+
+    $request->file('filename_in_form')->store('directory to upload');
+
+**Example**
+
+    $request->file('file')->store('public');
+
+Store the file with random name in **storage/app/public**
+
+but this file is not directly **accessible** since this folder in not public
+
+To make this folder public use
+
+    php artisan storage:link
+
+This will link **storage/app/public** to **resources/public/storage**
+
+Not to use access this file
+
+**Example**
+
+    function upload_file(Request $request) {
+    // return $request;
+    $path = $request->file('file')->store('public');
+    // store file with custom name
+    //$path = $request->file('file')->storeAs('public', 'filename.extension');
+    
+    // extract filename
+    $filenameArr = explode('/', $path);
+    $filename = $filenameArr[1];
+    
+    return view('display', ['path'=>$filename]);
+    }
+
+    <img src="{{ url('storage/'.$path) }}" />

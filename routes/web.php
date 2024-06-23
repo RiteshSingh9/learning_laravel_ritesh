@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -111,3 +112,7 @@ Route::get('logout', [UserController::class, 'logout']);
 // Flash session
 Route::view('user', 'user');
 Route::post('add', [UserController::class, 'add_new_user']);
+
+// File upload
+Route::view('upload', 'upload');
+Route::post('upload', [FileUploadController::class, 'upload_file']);

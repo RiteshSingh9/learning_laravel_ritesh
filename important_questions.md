@@ -172,3 +172,15 @@
 - use of keep() method
 
 - how to keep and array of flash session 
+
+### File upload and display file
+
+- How to upload file ?
+
+- How to upload file with custom name ?
+
+- How to display file ?
+
+- How to link **/storage/app/public** to **/resources/public/storage**
+  
+      php artisan storage:link
